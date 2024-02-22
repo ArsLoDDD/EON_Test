@@ -1,0 +1,42 @@
+[
+	{
+		"id": 1,
+		"role": "Service Customer",
+		"loginData": {
+			"username": "user123",
+			"password": "password123"
+		},
+		"email": "user123@example.com",
+		"fullName": "Test Test",
+		"avatar": "https://t3.ftcdn.net/jpg/02/00/90/24/360_F_200902415_G4eZ9Ok3Ypd4SZZKjc8nqJyFVp1eOD6V.jpg",
+		"socialMedia": {
+			"facebook": "https://www.facebook.com/user123",
+			"linkedin": "https://www.linkedin.com/in/user123",
+			"telegram": "https://t.me/user123"
+		},
+		"contacts": {
+			"phone": "+1234567890",
+			"address": "Amsterdam, Netherlands"
+		},
+		"tagWords": ["test", "example", "tag"],
+		"connectedSources": [
+			{
+				"id": 1,
+				"name": "Instagram",
+				"type": "Social Media",
+				"description": "Social media platform",
+				"logo": null,
+				"categories": [
+					"Media",
+					"Social Media",
+					"Entertainment",
+					"Technology",
+					"Internet",
+					"Mobile",
+					"Photography",
+					"Video"
+				]
+			}
+		]
+	}
+]

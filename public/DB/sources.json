@@ -1,0 +1,65 @@
+[
+	{
+		"id": 1,
+		"name": "Instagram",
+		"type": "Social Media",
+		"description": "Social media platform",
+		"website": "https://www.instagram.com",
+		"logo": null,
+		"socialMedia": {
+			"twitter": "https://twitter.com/example",
+			"instagram": "https://www.instagram.com/example",
+			"youtube": "https://www.youtube.com/user/example"
+		},
+		"contacts": {
+			"email": "info@example.com",
+			"phone": "+1234567890",
+			"address": "California, USA"
+		},
+		"categories": [
+			"Media",
+			"Social Media",
+			"Entertainment",
+			"Technology",
+			"Internet",
+			"Mobile",
+			"Photography",
+			"Video"
+		],
+		"tags": ["Social Media", "Photo Sharing", "Video Sharing", "Photography"],
+		"language": "English",
+		"country": "United States",
+		"established": "2010-10-06",
+		"about": "Instagram is a photo and video-sharing social networking service owned by Facebook, Inc. It was created by Kevin Systrom and Mike Krieger, and launched in October 2010 exclusively on iOS. A version for Android devices was released a year and half later, in April 2012, followed by a feature-limited website interface in November 2012, and apps for Windows 10 Mobile and Windows 10 in April 2016 and October 2016 respectively. The app allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging. Posts can be shared publicly or with pre-approved followers. Users can browse other users' content by tags and locations, and view trending content. Users can like photos and follow other users to add their content to a feed, a function that seems to be discontinued as of September 2020.",
+		"ratings": {
+			"overall": 4.5,
+			"design": 4.0,
+			"usability": 4.5,
+			"content": 5.0
+		},
+		"reviews": [
+			{ "user": "Користувач 1", "comment": "Коментар 1" },
+			{ "user": "Користувач 2", "comment": "Коментар 2" }
+		],
+		"connectedUsers": [
+			{
+				"id": 1,
+				"username": "user1",
+				"avatar": null,
+				"connectedAccountData": {
+					"username": "user1",
+					"password": "password1"
+				}
+			},
+			{
+				"id": 2,
+				"username": "user2",
+				"avatar": null,
+				"connectedAccountData": {
+					"username": "user2",
+					"password": "password2"
+				}
+			}
+		]
+	}
+]
