@@ -21,7 +21,34 @@ module.exports = {
 			width: {
 				87: '87%',
 			},
+			p: {
+				2.5: '0.6rem',
+			},
+			borderWidth: {
+				1: '1px',
+			},
 			height: {},
+			scale: {
+				70: '.7',
+			},
+			translate: {
+				18: '4.5rem',
+			},
+			animation: {
+				'custom-bounce': 'custom-bounce 1s infinite',
+			},
+			keyframes: {
+				'custom-bounce': {
+					'0%, 100%': {
+						transform: 'translateY(-10%)',
+						animationTimingFunction: 'ease-out',
+					},
+					'50%': {
+						transform: 'translateY(0)',
+						animationTimingFunction: 'ease-in',
+					},
+				},
+			},
 			colors: {
 				'gray-title': '#838383',
 				'gray-item': '#9197B3',

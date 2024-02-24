@@ -3,7 +3,7 @@ import { RootState } from '../redux/store'
 
 const useIsAuthenticated = (): boolean | null => {
 	const isAuthenticated: boolean | null = useSelector(
-		(state: RootState) => state.user.isAuthenticated
+		(state: RootState) => state.auth.isAuthLogin
 	)
 	return isAuthenticated
 }

@@ -3,8 +3,7 @@ import { fetchUserInfo } from '../../api/fetchUser'
 
 import { IUser } from '../../types/userTypes'
 
-
-type UserInfo = {
+export type UserInfo = {
 	userName: string
 	avatar: string | null
 	role: string
@@ -27,6 +26,11 @@ const initialState: UserState = {
 export const fetchUser = createAsyncThunk<IUser, { id: number; token: string }>(
 	'user/fetchUser',
 	async ({ id, token }) => {
+		// if (localStorage.getItem('userKeywords')) {
+		// 	const data = JSON.parse(localStorage.getItem('userKeywords') || '[]')
+		// 	state.keywords = [...data]
+		// 	return
+		// }
 		try {
 			const data = await fetchUserInfo(id, token)
 			let userInfo: UserInfo
@@ -37,7 +41,15 @@ export const fetchUser = createAsyncThunk<IUser, { id: number; token: string }>(
 					role: data.role,
 				}
 				localStorage.setItem('userInfo', JSON.stringify(userInfo))
+				if (!localStorage.getItem('userKeywords')) {
+					localStorage.setItem('userKeywords', JSON.stringify(data.keywords))
+				}
 			} else {
+				if (localStorage.getItem('userKeywords')) {
+					data.keywords = JSON.parse(
+						localStorage.getItem('userKeywords') || '[]'
+					)
+				}
 				userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}')
 			}
 			return data
@@ -58,6 +70,18 @@ const userSlice = createSlice({
 		setUserData: (state, action: PayloadAction<IUser | null>) => {
 			state.userData = action.payload
 		},
+		addKeyword: (state, action: PayloadAction<string>) => {
+			if (state.userData && 'keywords' in state.userData) {
+				state.userData.keywords.push(action.payload)
+			}
+		},
+		removeKeyWord: (state, action: PayloadAction<string>) => {
+			if (state.userData && 'keywords' in state.userData) {
+				state.userData.keywords = state.userData.keywords.filter(
+					keyword => keyword !== action.payload
+				)
+			}
+		},
 	},
 	extraReducers: builder => {
 		builder
@@ -75,6 +99,7 @@ const userSlice = createSlice({
 	},
 })
 
-export const { setIsAuthenticated, setUserData } = userSlice.actions
+export const { setIsAuthenticated, setUserData, addKeyword, removeKeyWord } =
+	userSlice.actions
 
 export default userSlice.reducer

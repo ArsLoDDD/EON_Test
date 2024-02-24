@@ -9,16 +9,12 @@ export interface IUser {
 	email: string
 	fullName: string
 	avatar: string | null
-	socialMedia: {
-		facebook: string
-		linkedin: string
-		telegram: string
-	}
+	socialMedia: UserSocialMedia
 	contacts: {
 		phone: string
 		address: string
 	}
-	tagWords: string[]
+	keywords: string[]
 	connectedSources: UsersConnectedSources[]
 }
 //UserConnectedSources
@@ -47,11 +43,7 @@ export interface UserUpdateData {
 	email: string
 	fullName: string
 	avatar: string | null
-	socialMedia: {
-		facebook: string
-		linkedin: string
-		telegram: string
-	}
+	socialMedia: UserSocialMedia
 	contacts: {
 		phone: string
 		address: string
@@ -68,4 +60,10 @@ export type UserToken = string | null
 export interface UserUseIsAuth {
 	token: UserToken
 	isAuth: boolean
+}
+//User social media
+export interface UserSocialMedia {
+	facebook: string | null
+	linkedin: string | null
+	telegram: string | null
 }

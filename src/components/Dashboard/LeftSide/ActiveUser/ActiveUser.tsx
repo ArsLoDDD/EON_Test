@@ -59,7 +59,7 @@ const ActiveUser: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
 									: 'text-black group-hover:text-white group-hover:border-white'
 							} duration-500 ${
 								isMobile
-									? 'h-8 w-8'
+									? 'h-16 w-20'
 									: 'hidden lg3:flex lg3:h-8 lg3:w-8 xl:h-12 xl:w-14'
 							}  `}
 						/>

@@ -11,7 +11,7 @@ import useScreenSize, {
 	ScreenSizeEnum,
 } from '../../../../../hooks/useScreenSize'
 
-interface MenuItemProps {
+export interface MenuItemProps {
 	icon: React.FC<IMenuButtonProps>
 	text: string
 	link: string

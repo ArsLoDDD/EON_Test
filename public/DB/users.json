@@ -3,8 +3,8 @@
 		"id": 1,
 		"role": "Service Customer",
 		"loginData": {
-			"username": "user123",
-			"password": "password123"
+			"username": "test_user1",
+			"password": "test_password1"
 		},
 		"email": "user123@example.com",
 		"fullName": "Test Test",
@@ -18,7 +18,7 @@
 			"phone": "+1234567890",
 			"address": "Amsterdam, Netherlands"
 		},
-		"tagWords": ["test", "example", "tag"],
+		"keywords": ["test", "example", "tag", "jazz", "kite", "lamp", "mountain"],
 		"connectedSources": [
 			{
 				"id": 1,

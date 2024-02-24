@@ -7,12 +7,16 @@ interface LogoIconProps {
 	className?: string
 	rotate?: string
 	isMobile?: boolean
+	isForm?: boolean
+	isLoadingScreen?: boolean
 }
 
 const LogoIcon: React.FC<LogoIconProps> = ({
 	className,
 	rotate,
 	isMobile = false,
+	isForm = false,
+	isLoadingScreen = false,
 }) => {
 	const mobileMenuIsActive = useSelector(
 		(state: RootState) => state.menu?.mobileMenuIsActive
@@ -25,14 +29,17 @@ const LogoIcon: React.FC<LogoIconProps> = ({
 	}
 	return (
 		<svg
-			width={isMobile ? '62' : '37'}
-			height={isMobile ? '62' : '37'}
+			width={isMobile ? '62' : isForm ? '76' : isLoadingScreen ? '150' : '37'}
+			height={isMobile ? '62' : isForm ? '76' : isLoadingScreen ? '150' : '37'}
 			viewBox='0 0 37 37'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
 			className={`${rotate} ${
 				isMobile &&
-				'z-50 absolute hover:fill-purple-bg-item-menu  fill-black duration-500 hover:rotate-180 top-4 left-4'
+				'z-50 absolute opacity-25 hover:opacity-100 hover:fill-purple-bg-item-menu  fill-black duration-500 hover:rotate-180 top-4 left-4'
+			}
+			${isForm && 'fill-purple-bg-item-menu duration-500 hover:rotate-180'} ${
+				isLoadingScreen && 'animate-spin'
 			}`}
 			onClick={e => changeMobileMenuIsActive(e)}
 		>

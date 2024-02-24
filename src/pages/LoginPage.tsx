@@ -1,20 +1,11 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { setIsAuthenticated } from '../redux/slices/userSlice'
-import { AppDispatch } from '../redux/store'
-import useUserToken from '../hooks/useUserToken'
+import LoginForm from '../components/Forms/LoginForm/LoginForm'
 
 const LoginPage: React.FC = () => {
-	const dispatch: AppDispatch = useDispatch()
-	const { token, saveToken, removeToken } = useUserToken()
-
-	useEffect(() => {
-		// dispatch(setIsAuthenticated(true))
-		// saveToken('token')
-	}, [])
 	return (
-		<div>
-			<h1>Login Page</h1>
+		<div className='bg-white md:bg-gradient-to-br from-purple-bg-item-menu via-sky-500  to-purple-400 w-full h-screen'>
+			<div className='w-full h-full flex justify-center items-center'>
+				<LoginForm />
+			</div>
 		</div>
 	)
 }

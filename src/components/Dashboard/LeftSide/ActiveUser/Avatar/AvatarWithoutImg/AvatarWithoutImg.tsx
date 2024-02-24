@@ -11,7 +11,7 @@ const AvatarWithoutImg: React.FC<
 		<div
 			className={`rounded-full text-2xl ${classNameArg} border-gray-100 border flex items-center justify-center bg-slate-200 ${
 				big && 'w-28 h-28  md:ml-5'
-			} ${up && 'absolute -translate-y-1/2 top-0'} ${classNameArg}  `}
+			} ${up && 'absolute -translate-y-1/2 top-0'} ${classNameArg} select-none`}
 		>
 			{typedUserData.fullName && typedUserData.fullName.charAt(0)}
 		</div>

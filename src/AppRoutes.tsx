@@ -5,6 +5,7 @@ import ProfilePage from './pages/ProfilePage'
 import useIsAuthenticated from './hooks/useIsAuth'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
+import KeywordsPage from './pages/KeywordsPage'
 
 const AppRoutes: React.FC = (): JSX.Element => {
 	const isAuth = useIsAuthenticated()
@@ -14,6 +15,7 @@ const AppRoutes: React.FC = (): JSX.Element => {
 				<>
 					<Route path='/' element={<HomePage />} />
 					<Route path='/profile' element={<ProfilePage />} />
+					<Route path='/keywords' element={<KeywordsPage />} />
 				</>
 			)}
 			{!isAuth && (

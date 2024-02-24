@@ -1,10 +1,14 @@
 import React from 'react'
+import { IMenuButtonProps } from './DashboardHome'
 
-const ProductIcon = ({ isActive = false }) => {
+const ProductIcon: React.FC<IMenuButtonProps> = ({
+	isActive = false,
+	bigIcon = false,
+}) => {
 	return (
 		<svg
-			width='24'
-			height='24'
+			width={bigIcon ? '32' : '24'}
+			height={bigIcon ? '32' : '24'}
 			viewBox='0 0 24 24'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
