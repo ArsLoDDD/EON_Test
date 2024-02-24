@@ -75,7 +75,7 @@ const SortingBar: React.FC<ISortingBarProps> = ({
 	}
 
 	return (
-		<div className='pt-4 mb-4 w-9/12	 md:w-1/2 ml-auto flex gap-4 items-center mr-5  '>
+		<div className='pt-4 mb-4 w-9/12 md:w-1/2 ml-auto flex gap-4 items-center mr-5  '>
 			<div className='flex'>
 				<SortIconHightToLow sortFun={handleSortHightToLow} />
 				<SortIconLowToHight sortFun={handleSortLowToHight} />
@@ -84,7 +84,7 @@ const SortingBar: React.FC<ISortingBarProps> = ({
 			</div>
 			<input
 				placeholder='Find keyword'
-				className='py-2 px-3  rounded-md bg-slate-100 text-purple-bg-item-menu border-purple-bg-item-menu border font-bold '
+				className='py-2 px-3  rounded-md bg-slate-100 text-slate-600 border-purple-bg-item-menu border font-bold '
 				type='text'
 				onChange={handleFind}
 			/>

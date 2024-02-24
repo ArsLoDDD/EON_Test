@@ -17,6 +17,7 @@ const keywordsSlice = createSlice({
 			state.keywords = [...action.payload]
 		},
 		addNewKeyword: (state, action: PayloadAction<string>) => {
+			console.log('asdq')
 			state.keywords = [...state.keywords, action.payload]
 		},
 	},

@@ -31,6 +31,7 @@ const KeywordsForm: React.FC = () => {
 	})
 
 	const handleAddKeyword = (newKeyword: string) => {
+		if (newKeyword.length === 0) return
 		newKeyword = newKeyword.toLowerCase()
 		const oldData = JSON.parse(localStorage.getItem('userKeywords') || '[]')
 		if (oldData.includes(newKeyword) || localKeywords.includes(newKeyword)) {
@@ -48,7 +49,7 @@ const KeywordsForm: React.FC = () => {
 		<div className='relative w-1/2 md:w-1/3 flex flex-col justify-center items-center font-poppins font-bold'>
 			<input
 				placeholder='Add new keyword'
-				className={`w-full py-3 px-4 mb-4 rounded-md text-purple-bg-item-menu border ${
+				className={`w-full py-3 px-4 mb-4 rounded-md text-slate-600 bg-slate-100 border ${
 					formik.touched.newKeyword && formik.errors.newKeyword
 						? 'border-red-500'
 						: 'border-purple-bg-item-menu'

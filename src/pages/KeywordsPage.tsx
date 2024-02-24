@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import KeywordItem from '../components/KeywordsItem/KeywordItem'
 import { Keyword, setKeywords } from '../redux/slices/keywordsSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -38,6 +38,7 @@ const KeywordsPage: React.FC = () => {
 
 	useEffect(() => {
 		setCurrentKeywordsArray(localKeywords)
+		setInitialKeywordsArray(localKeywords)
 	}, [localKeywords])
 
 	if (localKeywords.length === 0) {
