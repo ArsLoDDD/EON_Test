@@ -1,7 +1,7 @@
 // User types
 export interface IUser {
 	id: number
-	role: string
+	role: UserRoles
 	loginData: {
 		username: string
 		password: string
@@ -22,9 +22,20 @@ export interface UsersConnectedSources {
 	id: number
 	name: string
 	type: string
+	bgImage: string
 	description: string
 	logo: string | null
 	categories: string[]
+	connectedAccountData: UserConnectedSourceAccountData
+}
+//User connected source account data
+export interface UserConnectedSourceAccountData {
+	username: string
+	followers: number
+	following: number
+	likes: number
+	posts: number
+	status: string
 }
 //User login data
 export interface UserLoginData {
@@ -66,4 +77,11 @@ export interface UserSocialMedia {
 	facebook: string | null
 	linkedin: string | null
 	telegram: string | null
+}
+
+//User roles
+export enum UserRoles {
+	Admin = 'Admin',
+	ServiceCustomer = 'Service Customer',
+	VipServiceCustomer = 'Vip Service Customer',
 }

@@ -1,14 +1,20 @@
 import React from 'react'
-import Avatar from '../../../Dashboard/LeftSide/ActiveUser/Avatar/Avatar'
+//redux
 import { RootState } from '../../../../redux/store'
 import { useSelector } from 'react-redux'
-import AvatarWithoutImg from '../../../Dashboard/LeftSide/ActiveUser/Avatar/AvatarWithoutImg/AvatarWithoutImg'
-import useScreenSize, { ScreenSizeEnum } from '../../../../hooks/useScreenSize'
-import SocialMediaView from '../SocialMediaView/SocialMediaView'
+//types
 import { UserSocialMedia } from '../../../../types/userTypes'
+//hooks
+import useScreenSize, { ScreenSizeEnum } from '../../../../hooks/useScreenSize'
+//components
+import Avatar from '../../../Dashboard/LeftSide/ActiveUser/Avatar/Avatar'
+import AvatarWithoutImg from '../../../Dashboard/LeftSide/ActiveUser/Avatar/AvatarWithoutImg/AvatarWithoutImg'
+import SocialMediaView from '../SocialMediaView/SocialMediaView'
 
 const ProfileViewInfo: React.FC = () => {
+	//redux
 	const userInfo = useSelector((state: RootState) => state.user.userData)
+	//hooks
 	const screenSize = useScreenSize()
 
 	const typedUserInfo = userInfo as {

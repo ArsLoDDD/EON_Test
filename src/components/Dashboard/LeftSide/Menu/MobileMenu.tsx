@@ -1,12 +1,16 @@
 import React from 'react'
+//redux
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../redux/store'
+//animation
 import { motion, AnimatePresence } from 'framer-motion'
+//components
 import { menuItems } from './Menu'
 import MenuItem from './MenuItem/MenuItem'
 import ActiveUser from '../ActiveUser/ActiveUser'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../../../redux/store'
 
 const MobileMenu: React.FC = () => {
+	//redux
 	const mobileMenuIsActive = useSelector(
 		(state: RootState) => state.menu?.mobileMenuIsActive
 	)

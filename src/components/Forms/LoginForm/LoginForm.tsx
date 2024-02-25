@@ -1,21 +1,30 @@
+//react
 import React, { useEffect, useState } from 'react'
-import { Field } from 'formik'
-import * as Yup from 'yup'
-import CustomInput from '../customInput'
-import LogoIcon from '../../Icons/LogoIcon'
+//redux
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../redux/store'
 import { clearError, userAuth } from '../../../redux/slices/authSlice'
-import FormWrapper from '../FormWrapper/FormWrapper'
-import { motion } from 'framer-motion'
+//router
 import { useNavigate } from 'react-router-dom'
+//formik
+import { Field } from 'formik'
+//yup
+import * as Yup from 'yup'
+//animation
+import { motion } from 'framer-motion'
+//components
+import CustomInput from '../customInput'
+import LogoIcon from '../../Icons/LogoIcon'
+import FormWrapper from '../FormWrapper/FormWrapper'
 
 const initialValues = {
+	//initial and only this values for true auth
 	username: 'test_user1',
 	password: 'test_password1',
 }
 
 const validationSchema = Yup.object().shape({
+	//login validation
 	username: Yup.string()
 		.required('Username is required')
 		.min(6, 'Username is too short')
@@ -26,23 +35,26 @@ const validationSchema = Yup.object().shape({
 })
 
 const LoginForm: React.FC = () => {
+	//state
+	const [isError, setIsError] = useState(false)
+	//redux
 	const dispatch: AppDispatch = useDispatch()
 	const isLoading = useSelector((state: RootState) => state.auth.loading)
-	const [isError, setIsError] = useState(false)
 	const isErrorMessage = useSelector(
 		(state: RootState) => state.auth.errorMessage
 	)
 	const error = useSelector((state: RootState) => state.auth.error)
+	//router
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		console.log('error:', error)
 		if (error) {
 			setIsError(true)
 		}
 	}, [error])
 
 	const handleSubmit = (values: any) => {
+		// auth simulation
 		console.log('LoginForm submitted:', values)
 		dispatch(userAuth(values))
 		if (!isError) {
@@ -51,6 +63,7 @@ const LoginForm: React.FC = () => {
 	}
 
 	const handleErrorMessage = () => {
+		//clear error message
 		if (isError) {
 			setIsError(false)
 			dispatch(clearError())

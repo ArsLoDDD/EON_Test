@@ -25,17 +25,54 @@
 				"name": "Instagram",
 				"type": "Social Media",
 				"description": "Social media platform",
-				"logo": null,
-				"categories": [
-					"Media",
-					"Social Media",
-					"Entertainment",
-					"Technology",
-					"Internet",
-					"Mobile",
-					"Photography",
-					"Video"
-				]
+				"bgImage": "https://t4.ftcdn.net/jpg/06/55/50/69/360_F_655506911_1p13PsGKM93SuCePkLUcd75TW1Bzu4jg.jpg",
+				"logo": "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-512.png",
+				"categories": ["Entertainment", "Photography", "Video", "Social Media"],
+				"connectedAccountData": {
+					"username": "test_user1",
+					"password": "test_password1",
+					"followers": 45456,
+					"following": 232,
+					"likes": 123441,
+					"posts": 354,
+					"status": "active"
+				}
+			},
+			{
+				"id": 2,
+				"name": "Twitter",
+				"type": "Social Media",
+				"description": "Twitter is an American microblogging and social networking service",
+				"bgImage": "https://business.twitter.com/content/dam/create-twitter/global-backgrounds/marketing-module/bg-marketing-module-blue-d.jpg.twimg.1920.jpg",
+				"logo": "https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png",
+				"categories": ["Blogging", "Technology", "Internet"],
+				"connectedAccountData": {
+					"username": "test_user1",
+					"password": "test_password1",
+					"followers": 993456,
+					"following": 110,
+					"likes": 4123441,
+					"posts": 83,
+					"status": "active"
+				}
+			},
+			{
+				"id": 3,
+				"name": "Facebook",
+				"type": "Social Media",
+				"description": "Facebook is an American online social media and social networking service",
+				"bgImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUI9cO5warbvBJ_ggDu8aJDGm_BTrutOJDdw&usqp=CAU",
+				"logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Facebook_Logo_2023.png/640px-Facebook_Logo_2023.png",
+				"categories": ["Media", "Social Media", "Technology", "Internet"],
+				"connectedAccountData": {
+					"username": "test_user1",
+					"password": "test_password1",
+					"followers": 1223456,
+					"following": 14,
+					"likes": 124123441,
+					"posts": 41,
+					"status": "active"
+				}
 			}
 		]
 	}

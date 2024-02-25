@@ -1,15 +1,22 @@
+// react
 import React, { MouseEventHandler } from 'react'
+// redux
 import { useDispatch, useSelector } from 'react-redux'
-import Avatar from './Avatar/Avatar'
-import { NavLink } from 'react-router-dom'
 import { RootState } from '../../../../redux/store'
-import AvatarWithoutImg from './Avatar/AvatarWithoutImg/AvatarWithoutImg'
 import { setMobileMenuIsActive } from '../../../../redux/slices/menuSlice'
-import useScreenSize, { ScreenSizeEnum } from '../../../../hooks/useScreenSize'
+// react-router
+import { NavLink } from 'react-router-dom'
+// hooks
+import useScreenSize from '../../../../hooks/useScreenSize'
+// components
+import Avatar from './Avatar/Avatar'
+import AvatarWithoutImg from './Avatar/AvatarWithoutImg/AvatarWithoutImg'
 
 const ActiveUser: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
+	// redux
 	const userInfo = useSelector((state: RootState) => state?.user?.userData)
 	const dispatch = useDispatch()
+	// hooks
 	const screenSize = useScreenSize()
 
 	const typedUserInfo = userInfo as {
@@ -19,6 +26,7 @@ const ActiveUser: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
 	}
 
 	const handleClick: MouseEventHandler<HTMLAnchorElement> = event => {
+		// close mobile menu
 		if (isMobile) {
 			dispatch(setMobileMenuIsActive(false))
 		}

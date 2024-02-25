@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+//lodash
 import { debounce } from 'lodash'
 
 export enum ScreenSizeEnum {
@@ -10,6 +11,7 @@ export enum ScreenSizeEnum {
 export type ScreenSize = ScreenSizeEnum
 
 function useScreenSize(): ScreenSize {
+	//check the screen size
 	const [screenSize, setScreenSize] = useState<ScreenSize>(
 		getInitialScreenSize()
 	)

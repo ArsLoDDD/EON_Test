@@ -1,4 +1,6 @@
+// npm
 import axios from 'axios'
+// Types
 import { Keyword } from '../redux/slices/keywordsSlice'
 
 export const fetchKeywords = async (): Promise<Keyword[]> => {

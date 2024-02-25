@@ -1,22 +1,25 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
-import KeywordItem from '../components/KeywordsItem/KeywordItem'
+import { useEffect, useState } from 'react'
+//redux
 import { Keyword, setKeywords } from '../redux/slices/keywordsSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchKeywords } from '../api/fetchKeywords'
 import { RootState } from '../redux/store'
+//api
+import { fetchKeywords } from '../api/fetchKeywords'
+//components
 import KeywordsForm from '../components/Forms/KeywordsForm/KeywordsForm'
 import SortingBar from '../components/SortingBar/SortingBar'
-import LogoIcon from '../components/Icons/LogoIcon'
+import KeywordsItems from '../components/KeywordsItem/KeywordsItems/KeywordsItems'
 
 const KeywordsPage: React.FC = () => {
+	//state
 	const [currentKeywordsArray, setCurrentKeywordsArray] = useState<Keyword[]>(
 		[]
 	)
 	const [initialKeywordsArray, setInitialKeywordsArray] = useState<Keyword[]>(
 		[]
 	)
+	//redux
 	const dispatch = useDispatch()
-
 	const localKeywords = useSelector(
 		(state: RootState) => state.keywords.keywords
 	)
@@ -28,6 +31,7 @@ const KeywordsPage: React.FC = () => {
 		return []
 	})
 	useEffect(() => {
+		//fetch keywords
 		;(async () => {
 			const data: Keyword[] = await fetchKeywords()
 			setCurrentKeywordsArray(data)
@@ -37,6 +41,7 @@ const KeywordsPage: React.FC = () => {
 	}, [dispatch])
 
 	useEffect(() => {
+		//set keywords and update 
 		setCurrentKeywordsArray(localKeywords)
 		setInitialKeywordsArray(localKeywords)
 	}, [localKeywords])
@@ -51,25 +56,10 @@ const KeywordsPage: React.FC = () => {
 				setKeywordsArray={setCurrentKeywordsArray}
 				initialKeywordsArray={initialKeywordsArray}
 			/>
-			<div className='w-full h-2/3 overflow-scroll border-b-2 rounded-2xl bg-slate-100 drop-shadow-md'>
-				<div className='flex flex-wrap gap-1.5 p-5'>
-					{currentKeywordsArray.map((keyword, index) => {
-						const isPicked = userKeywords.includes(keyword)
-						return (
-							<KeywordItem key={index} keyword={keyword} isPicked={!isPicked} />
-						)
-					})}
-				</div>
-				{currentKeywordsArray.length === 0 && (
-					<div className='w-full h-2/3 flex flex-col justify-center items-center text-2xl font-bold text-purple-bg-item-menu'>
-						<LogoIcon
-							isLoadingScreen={true}
-							className='fill-purple-bg-item-menu'
-						/>
-						<span className=' font-poppins capitalize'> no keywords found</span>
-					</div>
-				)}
-			</div>
+			<KeywordsItems
+				currentKeywordsArray={currentKeywordsArray}
+				userKeywords={userKeywords}
+			/>
 			<div className='h-1/4 flex justify-center items-center'>
 				<KeywordsForm />
 			</div>

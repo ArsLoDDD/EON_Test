@@ -1,0 +1,32 @@
+[
+	{
+		"author": "John Doe",
+		"text": "Just finished reading a great book! Highly recommend it.",
+		"likes": 120,
+		"comments": 15
+	},
+	{
+		"author": "Jane Smith",
+		"text": "Excited to announce our new product launch! Check it out.",
+		"likes": 230,
+		"comments": 30
+	},
+	{
+		"author": "Alice Johnson",
+		"text": "Enjoying the sunny weather at the beach ☀️🌊",
+		"likes": 350,
+		"comments": 25
+	},
+	{
+		"author": "David Brown",
+		"text": "Discussing the latest developments in technology at the conference. #TechTrends",
+		"likes": 180,
+		"comments": 20
+	},
+	{
+		"author": "Emily Wilson",
+		"text": "Happy birthday to my amazing friend @SarahJones! 🎉🎂",
+		"likes": 450,
+		"comments": 40
+	}
+]

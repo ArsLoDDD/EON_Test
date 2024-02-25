@@ -1,4 +1,5 @@
 //connectedSources item in user obj
-export interface UserConnectedSources {
+export interface UserConnectedSource {
 	id: number
 }
+

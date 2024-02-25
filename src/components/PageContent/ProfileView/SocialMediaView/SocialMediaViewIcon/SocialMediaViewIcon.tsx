@@ -1,8 +1,10 @@
 import React from 'react'
-import { ProfileViewIconProps } from './SocialMediaViewIcons/facebookViewIcon'
+//hooks
 import useScreenSize, {
 	ScreenSizeEnum,
 } from '../../../../../hooks/useScreenSize'
+//types
+import { ProfileViewIconProps } from './SocialMediaViewIcons/facebookViewIcon'
 
 export interface ISocialMediaViewIconProps {
 	icon: React.FC<ProfileViewIconProps>
@@ -13,6 +15,7 @@ const SocialMediaViewIcon: React.FC<ISocialMediaViewIconProps> = ({
 	icon,
 	link,
 }) => {
+	//hooks
 	const screenSize = useScreenSize()
 
 	return (

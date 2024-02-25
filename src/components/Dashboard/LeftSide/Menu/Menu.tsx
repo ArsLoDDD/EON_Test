@@ -1,7 +1,9 @@
 import React from 'react'
+// components
 import MenuItem, { MenuItemProps } from './MenuItem/MenuItem'
 import DashboardHome from './MenuItem/ProductItemIcons/DashboardHome'
 import ProductIcon from './MenuItem/ProductItemIcons/ProductIcon'
+import CustomersIcon from './MenuItem/ProductItemIcons/CustomersIcon'
 
 interface MenuIconItemProps {
 	icon: React.FC
@@ -19,6 +21,11 @@ export const menuItems = [
 		icon: ProductIcon,
 		text: 'Keywords',
 		link: '/keywords',
+	},
+	{
+		icon: CustomersIcon,
+		text: 'Sources',
+		link: '/sources',
 	},
 ]
 

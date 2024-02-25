@@ -1,6 +1,8 @@
 import React from 'react'
-import LogoIcon from '../Icons/LogoIcon'
+//router
 import { Link } from 'react-router-dom'
+//components
+import LogoIcon from '../Icons/LogoIcon'
 
 const Logo: React.FC = () => {
 	return (

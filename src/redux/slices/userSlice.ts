@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { fetchUserInfo } from '../../api/fetchUser'
-
+//types
 import { IUser } from '../../types/userTypes'
+//api
+import { fetchUserInfo } from '../../api/fetchUser'
 
 export type UserInfo = {
 	userName: string
@@ -26,11 +27,7 @@ const initialState: UserState = {
 export const fetchUser = createAsyncThunk<IUser, { id: number; token: string }>(
 	'user/fetchUser',
 	async ({ id, token }) => {
-		// if (localStorage.getItem('userKeywords')) {
-		// 	const data = JSON.parse(localStorage.getItem('userKeywords') || '[]')
-		// 	state.keywords = [...data]
-		// 	return
-		// }
+		//fetch user data | server work simulation
 		try {
 			const data = await fetchUserInfo(id, token)
 			let userInfo: UserInfo

@@ -1,8 +1,12 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
-import LogoIcon from '../../Icons/LogoIcon'
-import { motion } from 'framer-motion'
+//router
 import { Link } from 'react-router-dom'
+//formik
+import { Formik, Form } from 'formik'
+//animation
+import { motion } from 'framer-motion'
+//components
+import LogoIcon from '../../Icons/LogoIcon'
 
 interface FormWrapperProps {
 	initialValues: any

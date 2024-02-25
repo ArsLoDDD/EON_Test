@@ -1,5 +1,6 @@
 import React from 'react'
 
+//need to rework this component
 const ProfileViewBg: React.FC = () => {
 	return (
 		<div className='relative md:h-3/5 rounded-t-3xl'>

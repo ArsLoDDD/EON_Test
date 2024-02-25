@@ -1,22 +1,28 @@
+//react
 import React, { useCallback } from 'react'
+//redux
 import { useDispatch } from 'react-redux'
-import CloseIcon from './CloseIcon/CloseIcon'
 import { addKeyword, removeKeyWord } from '../../redux/slices/userSlice'
+//components
+import CloseIcon from './CloseIcon/CloseIcon'
 
 export interface KeywordItemProps {
 	keyword: string
 	isPicked: boolean
+	isDeleteble?: boolean
+	classNameArg?: string
 }
 
 const style =
 	'text-center p-2 rounded-md font-poppins font-bold text-white duration-300'
 
 const KeywordItem: React.FC<KeywordItemProps> = React.memo(
-	({ isPicked, keyword }) => {
+	({ isPicked, keyword, isDeleteble, classNameArg = '' }) => {
+		//redux
 		const dispatch = useDispatch()
 
 		const handlePickWord = useCallback(() => {
-			console.log(keyword)
+			//pick the word
 			const oldData = JSON.parse(localStorage.getItem('userKeywords') || '[]')
 			if (oldData.includes(keyword)) {
 				return
@@ -27,16 +33,18 @@ const KeywordItem: React.FC<KeywordItemProps> = React.memo(
 		}, [keyword, dispatch])
 
 		const handleRemoveWord = useCallback(() => {
+			//remove the word
 			const oldData = JSON.parse(localStorage.getItem('userKeywords') || '[]')
 			const newData = oldData.filter((word: string) => word !== keyword)
 			localStorage.setItem('userKeywords', JSON.stringify(newData))
 			dispatch(removeKeyWord(keyword))
 		}, [keyword, dispatch])
 
-		if (isPicked) {
+		if (!isPicked || !isDeleteble) {
+			//if the word is not picked
 			return (
 				<div
-					className={`${style} bg-green-500 hover:scale-110 cursor-pointer`}
+					className={`${style} bg-green-500 hover:scale-110 cursor-pointer ${classNameArg}`}
 					onClick={handlePickWord}
 				>
 					<span>{keyword.charAt(0).toUpperCase() + keyword.slice(1)}</span>

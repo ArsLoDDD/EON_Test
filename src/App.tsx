@@ -1,29 +1,37 @@
+//react
 import React, { useEffect, useRef } from 'react'
+//redux
 import { useDispatch, useSelector } from 'react-redux'
-import Dashboard from './components/Dashboard/Dashboard'
 import { fetchUser } from './redux/slices/userSlice'
 import { AppDispatch, RootState } from './redux/store'
-import useUserToken from './hooks/useUserToken'
-import MobileMenu from './components/Dashboard/LeftSide/Menu/MobileMenu'
-import useScreenSize, { ScreenSizeEnum } from './hooks/useScreenSize'
-import LogoIcon from './components/Icons/LogoIcon'
-import useIsAuthenticated from './hooks/useIsAuth'
-import AppRoutes from './AppRoutes'
 import { setIsAuthenticated } from './redux/slices/authSlice'
 import { setMobileMenuIsActive } from './redux/slices/menuSlice'
+//router
+import AppRoutes from './AppRoutes'
+//hooks
+import useScreenSize, { ScreenSizeEnum } from './hooks/useScreenSize'
+import useIsAuthenticated from './hooks/useIsAuth'
+//components
+import MobileMenu from './components/Dashboard/LeftSide/Menu/MobileMenu'
+import LogoIcon from './components/Icons/LogoIcon'
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
+import Dashboard from './components/Dashboard/Dashboard'
 
 const App: React.FC = () => {
+	//redux
 	const dispatch: AppDispatch = useDispatch()
-	const screenSize = useScreenSize()
-	const isAuth = useIsAuthenticated()
-	const ref = useRef<HTMLDivElement>(null)
-	const toggleButtonRef = useRef<HTMLDivElement>(null)
 	const mobileMenuIsActive = useSelector(
 		(state: RootState) => state.menu.mobileMenuIsActive
 	)
+	//refs
+	const ref = useRef<HTMLDivElement>(null)
+	const toggleButtonRef = useRef<HTMLDivElement>(null)
+	//hooks
+	const screenSize = useScreenSize()
+	const isAuth = useIsAuthenticated()
 
 	useEffect(() => {
+		//check if the user is authenticated
 		const token = localStorage.getItem('token')
 		if (token) {
 			dispatch(setIsAuthenticated(true))
@@ -32,6 +40,7 @@ const App: React.FC = () => {
 	}, [dispatch, isAuth])
 
 	useEffect(() => {
+		//handle click outside menu to close it
 		const handleClickOutsideMenu = (e: MouseEvent) => {
 			if (
 				mobileMenuIsActive &&
@@ -52,6 +61,7 @@ const App: React.FC = () => {
 	}, [mobileMenuIsActive])
 
 	if (isAuth === null)
+		//show loading screen while checking if the user is authenticated
 		return (
 			<div className='w-full h-screen flex justify-center items-center'>
 				<LoadingScreen />

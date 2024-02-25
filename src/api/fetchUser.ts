@@ -1,4 +1,6 @@
+// npms
 import axios from 'axios'
+// Types
 import { IUser, UserToken } from '../types/userTypes'
 
 export const fetchUserInfo = async (

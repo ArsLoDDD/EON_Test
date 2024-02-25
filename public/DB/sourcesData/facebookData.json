@@ -1,0 +1,32 @@
+[
+	{
+		"author": "Mark Zuckerberg",
+		"text": "Excited to share our latest project updates with you all!",
+		"likes": 550,
+		"comments": 80
+	},
+	{
+		"author": "Sarah Adams",
+		"text": "Feeling grateful for all the support from my friends and family. Thank you!",
+		"likes": 670,
+		"comments": 120
+	},
+	{
+		"author": "Chris Evans",
+		"text": "Had a great time at the concert last night! 🎶 #MusicLover",
+		"likes": 420,
+		"comments": 60
+	},
+	{
+		"author": "Jessica Parker",
+		"text": "Just adopted the cutest puppy! Meet Bella 🐶❤️",
+		"likes": 890,
+		"comments": 150
+	},
+	{
+		"author": "Michael Thompson",
+		"text": "Sharing some photos from my recent trip to Europe. #Travel",
+		"likes": 720,
+		"comments": 100
+	}
+]

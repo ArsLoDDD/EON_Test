@@ -1,8 +1,10 @@
-//authSlice.ts
+//redux
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+//types
 import { IUser, UserLoginData } from '../../types/userTypes'
-import axios from 'axios'
 import { UserInfo } from './userSlice'
+//npm
+import axios from 'axios'
 
 export interface AuthState {
 	isAuthLogin: boolean

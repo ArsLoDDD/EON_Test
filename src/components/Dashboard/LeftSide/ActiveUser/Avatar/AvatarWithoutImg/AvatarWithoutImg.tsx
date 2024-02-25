@@ -1,10 +1,13 @@
+// redux
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../../../../redux/store'
+// components
 import { AvatarProps } from '../Avatar'
 
 const AvatarWithoutImg: React.FC<
 	AvatarProps & { classNameArg?: string; big?: boolean }
 > = ({ up, classNameArg, big }) => {
+	// redux
 	const userData = useSelector((state: RootState) => state?.user?.userData)
 	const typedUserData = userData as { fullName: string }
 	return (

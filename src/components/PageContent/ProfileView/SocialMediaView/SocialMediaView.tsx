@@ -1,4 +1,6 @@
+// types
 import { UserSocialMedia } from '../../../../types/userTypes'
+//components
 import SocialMediaViewIcon from './SocialMediaViewIcon/SocialMediaViewIcon'
 import FacebookViewIcon from './SocialMediaViewIcon/SocialMediaViewIcons/facebookViewIcon'
 import LinkedinViewIcon from './SocialMediaViewIcon/SocialMediaViewIcons/linkedinViewIcon'

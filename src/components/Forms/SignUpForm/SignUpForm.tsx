@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
-import { Field } from 'formik'
-import * as Yup from 'yup'
-import CustomInput from '../customInput'
+//redux
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../redux/store'
-// import { userRegister } from '../../../redux/slices/authSlice'
-import FormWrapper from '../FormWrapper/FormWrapper'
-import { motion } from 'framer-motion'
-import LogoIcon from '../../Icons/LogoIcon'
 import { clearError } from '../../../redux/slices/authSlice'
+//router
 import { useNavigate } from 'react-router-dom'
+
+//formik
+import { Field } from 'formik'
+//yup
+import * as Yup from 'yup'
+import CustomInput from '../customInput'
+//animation
+import { motion } from 'framer-motion'
+//components
+import FormWrapper from '../FormWrapper/FormWrapper'
+import LogoIcon from '../../Icons/LogoIcon'
 
 const initialValues = {
 	fullName: '',
@@ -20,6 +26,7 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object().shape({
+	//signup validation
 	fullName: Yup.string()
 		.required('Full Name is required')
 		.min(6, 'Full Name is too short')
@@ -49,16 +56,19 @@ const SignUpForm: React.FC<{
 		to: string
 	}
 }> = ({ link }) => {
+	//state
+	const [isError, setIsError] = useState(false)
+	//redux
 	const dispatch: AppDispatch = useDispatch()
 	const isLoading = useSelector((state: RootState) => state.auth.loading)
-	const [isError, setIsError] = useState(false)
 	const error = useSelector((state: RootState) => state.auth.error)
 	const errorMessage = useSelector(
 		(state: RootState) => state.auth.errorMessage
 	)
+	//router
 	const navigate = useNavigate()
 
-	const handleSubmit = (values: any) => {
+	const handleSubmit = (values: any) => {// reg simulation
 		console.log('RegisterForm submitted:', values)
 		// dispatch(userRegister(values))
 		if (!isError) {
@@ -67,6 +77,7 @@ const SignUpForm: React.FC<{
 	}
 
 	const handleErrorMessage = () => {
+		//clear error message
 		if (isError) {
 			setIsError(false)
 			dispatch(clearError())

@@ -1,8 +1,11 @@
+//types
 import { Keyword } from '../../redux/slices/keywordsSlice'
+// lodash
 import { debounce } from 'lodash'
+import _ from 'lodash'
+//components
 import SortIconHightToLow from './SortingBarIcons/SortIconHightToLow'
 import SortIconLowToHight from './SortingBarIcons/SortIconLowToHight'
-import _ from 'lodash'
 import SortIconPikedLast from './SortingBarIcons/SortIconPikedLast'
 import SortIconPikedFrst from './SortingBarIcons/SortIconPikedFrst'
 
@@ -18,7 +21,9 @@ const SortingBar: React.FC<ISortingBarProps> = ({
 	initialKeywordsArray,
 }) => {
 	const handleFind = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
+		//just find keywords
 		if (e.target.value === '') {
+			//if input is empty set initial array
 			setKeywordsArray(initialKeywordsArray)
 			return
 		}
@@ -30,15 +35,18 @@ const SortingBar: React.FC<ISortingBarProps> = ({
 	}, 150)
 
 	const handleSortHightToLow = () => {
+		//sort by length big to small
 		const sortedArray = _.sortBy(keywordsArray, keyword => -keyword.length)
 		setKeywordsArray(sortedArray)
 	}
 	const handleSortLowToHight = () => {
+		//sort by length small to big
 		const sortedArray = _.sortBy(keywordsArray, keyword => keyword.length)
 		setKeywordsArray(sortedArray)
 	}
 
 	const handleSortPickedFirst = () => {
+		//sort by picked first
 		const userKeywords = new Set(
 			JSON.parse(localStorage.getItem('userKeywords') || '[]')
 		)
@@ -57,6 +65,7 @@ const SortingBar: React.FC<ISortingBarProps> = ({
 	}
 
 	const handleSortPickedLast = () => {
+		//sort by picked last
 		const userKeywords = new Set(
 			JSON.parse(localStorage.getItem('userKeywords') || '[]')
 		)
@@ -84,7 +93,7 @@ const SortingBar: React.FC<ISortingBarProps> = ({
 			</div>
 			<input
 				placeholder='Find keyword'
-				className='py-2 px-3  rounded-md bg-slate-100 text-slate-600 border-purple-bg-item-menu border font-bold '
+				className='py-2 px-3  rounded-md bg-slate-100 text-slate-600 border-purple-bg-item-menu border font-bold placeholder:capitalize'
 				type='text'
 				onChange={handleFind}
 			/>

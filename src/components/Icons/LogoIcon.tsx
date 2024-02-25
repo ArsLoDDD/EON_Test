@@ -1,4 +1,6 @@
+//react
 import React, { MouseEventHandler } from 'react'
+//redux
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { setMobileMenuIsActive } from '../../redux/slices/menuSlice'

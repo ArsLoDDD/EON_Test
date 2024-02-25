@@ -1,6 +1,8 @@
 import React from 'react'
-import ErrorIcon from './ErrorIcon'
+//animations
 import { motion } from 'framer-motion'
+//components
+import ErrorIcon from './ErrorIcon'
 
 const CustomInput: React.FC<any> = ({
 	field,

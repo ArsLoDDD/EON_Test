@@ -1,23 +1,28 @@
 import React from 'react'
-import AppRoutes from '../../../AppRoutes'
+//redux
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
+//router
+import AppRoutes from '../../../AppRoutes'
+//location
 import { useLocation } from 'react-router-dom'
 
 const MainSide: React.FC = () => {
+	//redux
 	const userInfo = useSelector((state: RootState) => state.user?.userData)
+	//location
 	const path = useLocation().pathname
 
 	const typedUserInfo = userInfo as { fullName: string }
 	return (
-		<div className='w-full pt-5 bg-slate-200 flex justify-center '>
+		<div className='w-full h-screen bg-slate-200 flex justify-center '>
 			<div className='flex flex-col  w-full md:w-11/12'>
 				{userInfo && path === ('/' || '/home') && (
-					<p className='font-poppins text-3xl font-semibold my-5 select-none self-end lg:self-start mr-5 md:mr-0'>
+					<p className='font-poppins text-3xl font-semibold mt-4 mb-2 select-none self-end lg:self-start mr-5 md:mr-0'>
 						Hello {typedUserInfo.fullName} 👋🏼,
 					</p>
 				)}
-				<div className=' bg-white md:rounded-3xl flex justify-center h-screen mb-12'>
+				<div className=' bg-white md:rounded-3xl flex justify-center h-screen my-3'>
 					<AppRoutes />
 				</div>
 			</div>

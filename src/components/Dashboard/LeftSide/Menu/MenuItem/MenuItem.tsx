@@ -1,15 +1,20 @@
+// react
 import React from 'react'
+// redux
 import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import {
 	setActiveElement,
 	setMobileMenuIsActive,
 } from '../../../../../redux/slices/menuSlice'
-import ChevronRight from './ProductItemIcons/ChevronRight'
-import { IMenuButtonProps } from './ProductItemIcons/DashboardHome'
+// router
+import { NavLink } from 'react-router-dom'
+// hooks
 import useScreenSize, {
 	ScreenSizeEnum,
 } from '../../../../../hooks/useScreenSize'
+// components
+import ChevronRight from './ProductItemIcons/ChevronRight'
+import { IMenuButtonProps } from './ProductItemIcons/DashboardHome'
 
 export interface MenuItemProps {
 	icon: React.FC<IMenuButtonProps>
@@ -32,10 +37,13 @@ const MenuItem: React.FC<MenuItemProps> = ({
 	classNameArgsText,
 	bigIcon,
 }) => {
+	//redux
 	const dispatch = useDispatch()
+	//hooks
 	const screenSize = useScreenSize()
 
 	const handleChangeActiveElement = () => {
+		// set active element
 		dispatch(setActiveElement(index))
 		if (screenSize !== ScreenSizeEnum.Desktop) {
 			dispatch(setMobileMenuIsActive(false))
@@ -76,7 +84,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
 							{text}
 						</span>
 					</div>
-					{index !== 0 && !bigIcon && <ChevronRight isActive={isActive} />}
+					{index !== 0 && screenSize === ScreenSizeEnum.Desktop && (
+						<ChevronRight isActive={isActive} />
+					)}
 				</>
 			)}
 		</NavLink>
