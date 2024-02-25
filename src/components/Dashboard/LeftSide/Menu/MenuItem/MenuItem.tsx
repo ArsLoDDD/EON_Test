@@ -84,9 +84,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
 							{text}
 						</span>
 					</div>
-					{index !== 0 && screenSize === ScreenSizeEnum.Desktop && (
-						<ChevronRight isActive={isActive} />
-					)}
 				</>
 			)}
 		</NavLink>

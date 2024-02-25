@@ -56,6 +56,7 @@ const KeywordsForm: React.FC = () => {
 	return (
 		<div className='relative w-1/2 md:w-1/3 flex flex-col justify-center items-center font-poppins font-bold'>
 			<input
+				tabIndex={1}
 				placeholder='Add new keyword'
 				className={`w-full py-3 px-4 mb-4 rounded-md text-slate-600 bg-slate-100 placeholder:capitalize border ${
 					formik.touched.newKeyword && formik.errors.newKeyword
@@ -70,6 +71,12 @@ const KeywordsForm: React.FC = () => {
 				onBlur={formik.handleBlur}
 				value={formik.values.newKeyword}
 				name='newKeyword'
+				onKeyPress={e => {
+					if (e.key === 'Enter') {
+						e.preventDefault()
+						formik.handleSubmit()
+					}
+				}}
 			/>
 			{formik.touched.newKeyword && formik.errors.newKeyword && (
 				<div className='absolute -top-1/4 text-red-500 text-sm whitespace-nowrap capitalize'>
