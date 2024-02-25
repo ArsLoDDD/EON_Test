@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 //hooks
 import useScreenSize, { ScreenSizeEnum } from '../../hooks/useScreenSize'
 //components
@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
 	//hooks
 	const screenSize = useScreenSize()
 	return (
-		<div className='flex bg-red-800 w-full h-screen'>
+		<div className='flex bg-slate-200 items-center w-full h-screen'>
 			{screenSize === ScreenSizeEnum.Desktop && <LeftSide />}
 			<MainSide />
 		</div>

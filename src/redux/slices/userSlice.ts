@@ -11,14 +11,14 @@ export type UserInfo = {
 }
 
 interface UserState {
-	userData: IUser | {} | null
+	userData: IUser | null
 	requestStatus: 'idle' | 'pending' | 'fulfilled' | 'rejected'
 	error: string | null
 	isAuthenticated: boolean | null
 }
 
 const initialState: UserState = {
-	userData: {},
+	userData: null,
 	requestStatus: 'idle',
 	error: null,
 	isAuthenticated: null,

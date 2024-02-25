@@ -35,7 +35,7 @@ export interface UserConnectedSourceAccountData {
 	following: number
 	likes: number
 	posts: number
-	status: string
+	status: UserSourceStatus
 }
 //User login data
 export interface UserLoginData {
@@ -84,4 +84,9 @@ export enum UserRoles {
 	Admin = 'Admin',
 	ServiceCustomer = 'Service Customer',
 	VipServiceCustomer = 'Vip Service Customer',
+}
+//User Source status enum
+export enum UserSourceStatus {
+	Active = 'Active',
+	Disabled = 'Disabled',
 }

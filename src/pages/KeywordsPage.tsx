@@ -41,7 +41,7 @@ const KeywordsPage: React.FC = () => {
 	}, [dispatch])
 
 	useEffect(() => {
-		//set keywords and update 
+		//set keywords and update
 		setCurrentKeywordsArray(localKeywords)
 		setInitialKeywordsArray(localKeywords)
 	}, [localKeywords])

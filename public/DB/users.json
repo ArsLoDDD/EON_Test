@@ -27,7 +27,7 @@
 				"description": "Social media platform",
 				"bgImage": "https://t4.ftcdn.net/jpg/06/55/50/69/360_F_655506911_1p13PsGKM93SuCePkLUcd75TW1Bzu4jg.jpg",
 				"logo": "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-512.png",
-				"categories": ["Entertainment", "Photography", "Video", "Social Media"],
+				"categories": ["Photography", "Video", "Social Media"],
 				"connectedAccountData": {
 					"username": "test_user1",
 					"password": "test_password1",
@@ -35,7 +35,7 @@
 					"following": 232,
 					"likes": 123441,
 					"posts": 354,
-					"status": "active"
+					"status": "Active"
 				}
 			},
 			{
@@ -53,7 +53,7 @@
 					"following": 110,
 					"likes": 4123441,
 					"posts": 83,
-					"status": "active"
+					"status": "Active"
 				}
 			},
 			{
@@ -71,7 +71,7 @@
 					"following": 14,
 					"likes": 124123441,
 					"posts": 41,
-					"status": "active"
+					"status": "Active"
 				}
 			}
 		]

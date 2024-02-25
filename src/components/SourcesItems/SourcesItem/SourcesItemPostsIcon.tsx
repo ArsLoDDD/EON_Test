@@ -1,4 +1,4 @@
-import { UserConnectedSourceAccountDataIcon } from './SourcesItemFollowersIcon'
+import { UserConnectedSourceAccountDataIcon } from './SourcesItemIcons/SourcesItemFollowersIcon'
 
 const SourcesItemPostsIcon: React.FC<UserConnectedSourceAccountDataIcon> = ({
 	classNameArg,

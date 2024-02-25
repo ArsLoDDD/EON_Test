@@ -20,14 +20,14 @@ const ProfileView: React.FC = () => {
 		setUserKeywords(JSON.parse(localStorage.getItem('userKeywords') || '[]'))
 	}, [])
 	return (
-		<div className=' pt-5'>
+		<div className=' h-full pt-5'>
 			{screenSize !== ScreenSizeEnum.Mobile && (
-				<div className='bg-slate-100 w-full md:w-11/12 md:h-2/5 mx-auto rounded-3xl '>
+				<div className='bg-slate-100 w-full md:w-11/12 md:h-2/5 mx-auto rounded-3xl flex flex-col'>
 					<ProfileViewBg />
 					<ProfileViewInfo />
 				</div>
 			)}
-			<div className=' w-full md:w-10/12 md:h-3/6 mx-auto bg-slate-100 rounded-b-3xl flex relative'>
+			<div className='h-3/6 w-full md:w-10/12 mx-auto bg-slate-100 rounded-b-3xl flex relative'>
 				<div className='w-full h-full flex flex-col justify-between items-center'>
 					{screenSize === ScreenSizeEnum.Mobile && <ProfileViewInfo />}
 					<div className='w-3/4 h-3/5'>

@@ -1,32 +1,27 @@
 [
 	{
+		"id": 1,
 		"author": "Alexandra Lee",
-		"text": "Beautiful sunset view from the mountains. #Nature",
-		"likes": 920,
-		"comments": 80
+		"text": "Beautiful sunset view from the mountains. #Nature A guitar played parrot by the ocean. Walking through yacht the forest at night under the starry sky. The smell of fresh oranges in the morning breeze."
 	},
 	{
+		"id": 2,
 		"author": "Ryan Williams",
-		"text": "Exploring the city streets on a rainy day. ☔️ #UrbanLife",
-		"likes": 780,
-		"comments": 65
+		"text": "Exploring the city streets on a rainy day. ☔️ #UrbanLife Dancing butterflies in the mountain valley. Climbing the highest yacht peaks in search of adventure. Sipping hot coffee in a cozy cafe."
 	},
 	{
+		"id": 3,
 		"author": "Sophia Martinez",
-		"text": "Trying out some delicious local cuisine. #Foodie",
-		"likes": 1050,
-		"comments": 120
+		"text": "Trying out some delicious local cuisine. #Foodie Enjoying cherry ice cream under the airplane moonlight. Running barefoot on the sandy beach. Painting colorful sunsets in the evening."
 	},
 	{
+		"id": 4,
 		"author": "Daniel White",
-		"text": "Celebrating my graduation with friends and family. 🎓🎉",
-		"likes": 1150,
-		"comments": 150
+		"text": "Celebrating my jungle graduation with friends and family. 🎓🎉 Watching penguins dance with dolphins. Exploring ancient ruins in the jungle. Camping under the starlit sky with a crackling fire."
 	},
 	{
+		"id": 5,
 		"author": "Olivia Brown",
-		"text": "Enjoying a peaceful day by the lake. #Relaxation",
-		"likes": 890,
-		"comments": 100
+		"text": "Enjoying quokka a peaceful day by the sunflower lake. #Relaxation Hiking near the rainbow waterfall. Reading a book in a hammock under the shade of a tree. Riding bicycles through fields of blooming flowers."
 	}
 ]

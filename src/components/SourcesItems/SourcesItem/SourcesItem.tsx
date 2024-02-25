@@ -1,12 +1,16 @@
 //router
 import { Link } from 'react-router-dom'
 //types
-import { UsersConnectedSources } from '../../../types/userTypes'
+import {
+	UserSourceStatus,
+	UsersConnectedSources,
+} from '../../../types/userTypes'
 //components
 import Avatar from '../../Dashboard/LeftSide/ActiveUser/Avatar/Avatar'
 import KeywordItem from '../../KeywordsItem/KeywordItem'
 import SourcesItemFollowersIcon from './SourcesItemIcons/SourcesItemFollowersIcon'
-import SourcesItemPostsIcon from './SourcesItemIcons/SourcesItemPostsIcon'
+import SourcesItemPostsIcon from './SourcesItemPostsIcon'
+import SourcesItemLikesIcon from './SourcesItemIcons/SourcesItemLikesIcon'
 
 export interface SourcesItemProps {
 	source: UsersConnectedSources
@@ -21,6 +25,7 @@ function formatNumber(num: number): string {
 		return num.toString()
 	}
 }
+
 const SourcesItem: React.FC<SourcesItemProps> = ({ source }) => {
 	return (
 		<Link
@@ -41,14 +46,29 @@ const SourcesItem: React.FC<SourcesItemProps> = ({ source }) => {
 					)}
 					<p className='text-white text-xl font-bold'>{source.name}</p>
 				</div>
-				<div
-					onClick={e => {
-						e.preventDefault()
-					}}
-					className='flex flex-col justify-center items-center bg-white rounded-xl py-1 px-2 text-xs select-text'
-				>
-					<span>Login: {source.connectedAccountData.username}</span>
-					<span>Password: {source.connectedAccountData.username}</span>
+				<div className='flex gap-5 justify-center items-center'>
+					<p
+						className={`hidden md:block ${
+							source.connectedAccountData.status === UserSourceStatus.Active
+								? 'bg-green-400'
+								: ' bg-red-500 '
+						} px-3 py-1 rounded-xl text-white font-bold`}
+					>
+						{source.connectedAccountData.status}
+					</p>
+					<div
+						onClick={e => {
+							e.preventDefault()
+						}}
+						className='flex flex-col justify-center items-center bg-white rounded-xl py-1 px-2 text-xs select-text'
+					>
+						<span className=' whitespace-nowrap'>
+							Login: {source.connectedAccountData.username}
+						</span>
+						<span className=' whitespace-nowrap'>
+							Password: {source.connectedAccountData.username}
+						</span>
+					</div>
 				</div>
 			</div>
 			<div className='flex items-center justify-between'>
@@ -59,13 +79,13 @@ const SourcesItem: React.FC<SourcesItemProps> = ({ source }) => {
 							{formatNumber(source.connectedAccountData.followers)}
 						</span>
 					</div>
-					<div className='flex items-center gap-1 bg-white py-1 px-2 rounded-xl '>
-						<SourcesItemFollowersIcon classNameArg='h-5 w-5 ' />
+					<div className=' items-center hidden md:flex gap-1 bg-white py-1 px-2 rounded-xl '>
+						<SourcesItemLikesIcon classNameArg='h-5 w-5 ' />
 						<span className='font-bold text-xs'>
-							{formatNumber(source.connectedAccountData.followers)}
+							{formatNumber(source.connectedAccountData.likes)}
 						</span>
 					</div>
-					<div className='flex items-center gap-1 bg-white py-1 px-2 rounded-xl '>
+					<div className='hidden md:flex items-center gap-1 bg-white py-1 px-2 rounded-xl '>
 						<SourcesItemPostsIcon classNameArg='h-5 w-5 ' />
 						<span className='font-bold text-xs'>
 							{formatNumber(source.connectedAccountData.followers)}
@@ -79,7 +99,8 @@ const SourcesItem: React.FC<SourcesItemProps> = ({ source }) => {
 							<KeywordItem
 								keyword={keyword}
 								isPicked={false}
-								classNameArg='text-xs'
+								classNameArg='text-xs whitespace-nowrap'
+								key={key + keyword + source.name}
 							/>
 						)
 					})}

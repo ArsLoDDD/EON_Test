@@ -27,7 +27,10 @@ module.exports = {
 			borderWidth: {
 				1: '1px',
 			},
-			height: {},
+			height: {
+				'11/12': '96.666667%',
+			},
+			h: {},
 			scale: {
 				70: '.7',
 			},
