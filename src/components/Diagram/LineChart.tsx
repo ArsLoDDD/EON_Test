@@ -20,9 +20,13 @@ const LineChart: React.FC<LineChartData> = ({
 	yAxisLabel,
 }) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null)
+	const [chartInstance, setChartInstance] = React.useState<any | null>(null)
 
 	useEffect(() => {
 		if (chartRef.current) {
+			if (chartInstance) {
+				chartInstance.destroy()
+			}
 			const ctx = chartRef.current.getContext('2d')
 			if (ctx) {
 				const newChart = new Chart(ctx, {
@@ -62,7 +66,7 @@ const LineChart: React.FC<LineChartData> = ({
 						},
 					},
 				})
-
+				setChartInstance(newChart)
 				return () => {
 					newChart.destroy()
 				}

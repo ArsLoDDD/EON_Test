@@ -102,21 +102,17 @@ const HomePage: React.FC = () => {
 					className={`w-1/2 ${border} flex flex-col justify-center items-center py-4`}
 				>
 					<p className=' text-xs font-bold'>Your Accounts follower Stats</p>
-					{connectedSourcesChart.colors.length &&
-						connectedSourcesChart.labels.length &&
-						connectedSourcesChart.values.length && (
-							<PieChart data={connectedSourcesChart} />
-						)}
+					{connectedSourcesChart.colors.length && (
+						<PieChart data={connectedSourcesChart} />
+					)}
 				</div>
 				<div
 					className={`w-1/2 ${border} flex flex-col justify-center items-center py-4 `}
 				>
 					<p className=' text-xs font-bold'>Yours and Servise Keywords</p>
-					{userKeywordsCountChart.colors.length &&
-						userKeywordsCountChart.labels.length &&
-						userKeywordsCountChart.values.length && (
-							<PieChart data={userKeywordsCountChart} />
-						)}
+					{userKeywordsCountChart.colors.length && (
+						<PieChart data={userKeywordsCountChart} />
+					)}
 				</div>
 			</div>
 			<div
@@ -125,38 +121,36 @@ const HomePage: React.FC = () => {
 				<p className=' text-xs font-bold pt-2 whitespace-nowrap'>
 					Chart of growth of number of followers of likes and comments
 				</p>
-				{
-					<LineChart
-						labels={[
-							'January',
-							'February',
-							'March',
-							'April',
-							'May',
-							'June',
-							'July',
-						]}
-						datasets={[
-							{
-								label: 'Followers',
-								data: [41245, 34581, 83762, 13058, 87122, 45616, 23451],
-								color: 'rgb(255, 215, 0)',
-							},
-							{
-								label: 'Likes',
-								data: [98799, 12312, 42341, 12354, 43562, 32452, 52344],
-								color: 'rgb(255, 0, 255)',
-							},
-							{
-								label: 'Comments',
-								data: [41231, 41245, 23411, 12341, 51321, 63131, 12367],
-								color: 'rgb(0, 255, 0)',
-							},
-						]}
-						xAxisLabel='Month'
-						yAxisLabel='Percentage'
-					/>
-				}
+				<LineChart
+					labels={[
+						'January',
+						'February',
+						'March',
+						'April',
+						'May',
+						'June',
+						'July',
+					]}
+					datasets={[
+						{
+							label: 'Followers',
+							data: [41245, 34581, 83762, 13058, 87122, 45616, 23451],
+							color: 'rgb(255, 215, 0)',
+						},
+						{
+							label: 'Likes',
+							data: [98799, 12312, 42341, 12354, 43562, 32452, 52344],
+							color: 'rgb(255, 0, 255)',
+						},
+						{
+							label: 'Comments',
+							data: [41231, 41245, 23411, 12341, 51321, 63131, 12367],
+							color: 'rgb(0, 255, 0)',
+						},
+					]}
+					xAxisLabel='Month'
+					yAxisLabel='Percentage'
+				/>
 			</div>
 		</div>
 	)

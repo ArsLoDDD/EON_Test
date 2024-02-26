@@ -1,16 +1,21 @@
 import { Chart, registerables } from 'chart.js'
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 Chart.register(...registerables)
 
 const PieChart: React.FC<any> = ({ data }) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null)
+	const [chartInstance, setChartInstance] = useState<any | null>(null)
 
 	useEffect(() => {
 		if (chartRef.current) {
+			if (chartInstance) {
+				console.log('12123123')
+				chartInstance.destroy()
+			}
 			const ctx = chartRef.current.getContext('2d')
 			if (ctx) {
-				new Chart(ctx, {
+				const newChart = new Chart(ctx, {
 					type: 'pie',
 					data: {
 						labels: data.labels,
@@ -32,6 +37,7 @@ const PieChart: React.FC<any> = ({ data }) => {
 						},
 					},
 				})
+				setChartInstance(newChart)
 			}
 		}
 	}, [data])
