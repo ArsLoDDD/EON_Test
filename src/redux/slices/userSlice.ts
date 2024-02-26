@@ -3,6 +3,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IUser } from '../../types/userTypes'
 //api
 import { fetchUserInfo } from '../../api/fetchUser'
+import { ProfileViewInfoProps } from '../../components/PageContent/ProfileView/ProfileViewInfo/ProfileViewInfo'
+import { EditModalFormProps } from '../../components/Forms/EditModalForm/EditModalForm'
 
 export type UserInfo = {
 	userName: string
@@ -15,6 +17,7 @@ interface UserState {
 	requestStatus: 'idle' | 'pending' | 'fulfilled' | 'rejected'
 	error: string | null
 	isAuthenticated: boolean | null
+	isEditModalOpen: boolean
 }
 
 const initialState: UserState = {
@@ -22,6 +25,7 @@ const initialState: UserState = {
 	requestStatus: 'idle',
 	error: null,
 	isAuthenticated: null,
+	isEditModalOpen: false,
 }
 
 export const fetchUser = createAsyncThunk<IUser, { id: number; token: string }>(
@@ -79,6 +83,24 @@ const userSlice = createSlice({
 				)
 			}
 		},
+		closeEditModal: state => {
+			state.isEditModalOpen = false
+		},
+		openEditModal: state => {
+			state.isEditModalOpen = true
+		},
+		setNewUserInfo: (state, action: PayloadAction<EditModalFormProps>) => {
+			if (state.userData) {
+				state.userData.loginData.username = action.payload.loginData.username
+				state.userData.fullName = action.payload.fullName
+				// const userInfo = localStorage.getItem('userInfo')
+				// if (userInfo) {
+				// 	const parsedUserInfo = JSON.parse(userInfo)
+				// 	parsedUserInfo.userName = action.payload.loginData.username
+				// 	localStorage.setItem('userInfo', JSON.stringify(parsedUserInfo))
+				// }
+			}
+		},
 	},
 	extraReducers: builder => {
 		builder
@@ -96,7 +118,14 @@ const userSlice = createSlice({
 	},
 })
 
-export const { setIsAuthenticated, setUserData, addKeyword, removeKeyWord } =
-	userSlice.actions
+export const {
+	setIsAuthenticated,
+	setUserData,
+	addKeyword,
+	removeKeyWord,
+	closeEditModal,
+	openEditModal,
+	setNewUserInfo,
+} = userSlice.actions
 
 export default userSlice.reducer

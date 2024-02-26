@@ -27,10 +27,10 @@ const ProfileView: React.FC = () => {
 					<ProfileViewInfo />
 				</div>
 			)}
-			<div className='h-3/6 w-full md:w-10/12 mx-auto bg-slate-100 rounded-b-3xl flex relative'>
+			<div className='h-7/12 w-full md:w-10/12 mx-auto bg-slate-100 rounded-b-3xl flex relative'>
 				<div className='w-full h-full flex flex-col justify-between items-center'>
 					{screenSize === ScreenSizeEnum.Mobile && <ProfileViewInfo />}
-					<div className='w-3/4 h-3/5'>
+					<div className='w-full h-3/5'>
 						<KeywordsItems
 							currentKeywordsArray={userKeywords}
 							userKeywords={userKeywords}

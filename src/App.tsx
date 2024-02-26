@@ -16,12 +16,16 @@ import MobileMenu from './components/Dashboard/LeftSide/Menu/MobileMenu'
 import LogoIcon from './components/Icons/LogoIcon'
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
 import Dashboard from './components/Dashboard/Dashboard'
+import EditModal from './components/EditModal/EditModal'
 
 const App: React.FC = () => {
 	//redux
 	const dispatch: AppDispatch = useDispatch()
 	const mobileMenuIsActive = useSelector(
 		(state: RootState) => state.menu.mobileMenuIsActive
+	)
+	const isEditModalOpen = useSelector(
+		(state: RootState) => state.user.isEditModalOpen
 	)
 	//refs
 	const ref = useRef<HTMLDivElement>(null)
@@ -72,6 +76,8 @@ const App: React.FC = () => {
 		<>
 			{isAuth && (
 				<>
+					<EditModal isOpen={isEditModalOpen} />
+
 					{screenSize !== ScreenSizeEnum.Desktop && (
 						<div ref={toggleButtonRef}>
 							<LogoIcon isMobile={true} />

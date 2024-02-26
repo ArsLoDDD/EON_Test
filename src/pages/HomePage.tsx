@@ -89,15 +89,15 @@ const HomePage: React.FC = () => {
 
 	if (!userSources) return <div>loading...</div>
 	return (
-		<div className='w-full h-full relative flex flex-col justify-center items-center bg-slate-200'>
+		<div className='w-full h-full py-3 relative flex flex-col justify-center items-center bg-slate-200'>
 			<div
-				className={`w-full h-1/5 ${border} flex justify-center items-center `}
+				className={`w-full h-2/12 ${border} flex justify-center items-center `}
 			>
 				<p className=' text-slate-500 font-poppins font-bold text-3xl'>
 					Many updates later
 				</p>
 			</div>
-			<div className={`w-full h-2/5 flex ${border}`}>
+			<div className={`w-full h-5/12 flex ${border}`}>
 				<div
 					className={`w-1/2 ${border} flex flex-col justify-center items-center py-4`}
 				>
@@ -116,7 +116,7 @@ const HomePage: React.FC = () => {
 				</div>
 			</div>
 			<div
-				className={`w-full h-2/5 ${border} flex flex-col justify-center items-center py-2`}
+				className={`w-full h-5/12 ${border} flex flex-col justify-center items-center py-2`}
 			>
 				<p className=' text-xs font-bold pt-2 whitespace-nowrap'>
 					Chart of growth of number of followers of likes and comments

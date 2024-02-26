@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 //redux
 import { RootState } from '../../../../redux/store'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 //types
 import { UserSocialMedia } from '../../../../types/userTypes'
 //hooks
@@ -10,22 +10,27 @@ import useScreenSize, { ScreenSizeEnum } from '../../../../hooks/useScreenSize'
 import Avatar from '../../../Dashboard/LeftSide/ActiveUser/Avatar/Avatar'
 import AvatarWithoutImg from '../../../Dashboard/LeftSide/ActiveUser/Avatar/AvatarWithoutImg/AvatarWithoutImg'
 import SocialMediaView from '../SocialMediaView/SocialMediaView'
+import EditModal from '../../../EditModal/EditModal'
+import { openEditModal } from '../../../../redux/slices/userSlice'
+
+export interface ProfileViewInfoProps {
+	fullName: string
+	loginData: {
+		username: string
+	}
+	role: string
+	avatar: string | null
+	socialMedia: UserSocialMedia
+}
 
 const ProfileViewInfo: React.FC = () => {
 	//redux
+	const dispatch = useDispatch()
 	const userInfo = useSelector((state: RootState) => state.user.userData)
 	//hooks
 	const screenSize = useScreenSize()
 
-	const typedUserInfo = userInfo as {
-		fullName: string
-		loginData: {
-			username: string
-		}
-		role: string
-		avatar: string | null
-		socialMedia: UserSocialMedia
-	}
+	const typedUserInfo = userInfo as ProfileViewInfoProps
 
 	if (!typedUserInfo) return <h1>Loading</h1>
 
@@ -82,7 +87,12 @@ const ProfileViewInfo: React.FC = () => {
 							</div>
 						)}
 					</div>
-					<button className=' h-16 md:h-10 text-lg md:text-sm bg-purple-bg-item-menu px-12 md:px-3 text-white rounded-3xl md:mr-5'>
+					<button
+						onClick={() => {
+							dispatch(openEditModal())
+						}}
+						className=' h-16 md:h-10 text-lg md:text-sm bg-purple-bg-item-menu px-12 md:px-3 text-white rounded-3xl md:mr-5'
+					>
 						Edit Profile
 					</button>
 				</div>
