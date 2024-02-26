@@ -20,7 +20,7 @@ const Logo: React.FC = () => {
 			>
 				<p className='font-poppins text-xl font-semibold'>Dashboard</p>
 				<p className=' text-gray-title text-xs leading-6 group-hover:scale-110 duration-500 absolute -right-7 -top-2 rotate-45'>
-					Service
+					Keywords
 				</p>
 			</Link>
 		</div>
