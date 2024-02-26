@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 //components
 import Chart from 'chart.js/auto'
 
@@ -20,7 +20,7 @@ const LineChart: React.FC<LineChartData> = ({
 	yAxisLabel,
 }) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null)
-	const [chartInstance, setChartInstance] = React.useState<any | null>(null)
+	const [chartInstance, setChartInstance] = useState<any | null>(null)
 
 	useEffect(() => {
 		if (chartRef.current) {
