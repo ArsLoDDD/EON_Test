@@ -20,7 +20,7 @@ const LineChart: React.FC<LineChartData> = ({
 	yAxisLabel,
 }) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null)
-	const [chartInstance, setChartInstance] = useState<any | null>(null)
+	const [chartInstance, setChartInstance] = useState<Chart | null>(null)
 
 	useEffect(() => {
 		if (chartRef.current) {

@@ -44,8 +44,8 @@ export const userAuth = createAsyncThunk(
 	): Promise<UserAuthResponse | UserAuthResponseError> => {
 		try {
 			const { data } = await axios.get('./../../DB/users.json')
-			const findUser: IUser | undefined = data.find(
-				(user: any) => user.loginData.username === obj.username
+			const findUser: IUser = data.find(
+				(user: IUser) => user.loginData.username === obj.username
 			)
 			if (!!findUser) {
 				let userInfo: UserInfo = {

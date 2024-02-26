@@ -1,11 +1,8 @@
 //react
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 //redux
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../redux/store'
-
-//router
-import { useNavigate } from 'react-router-dom'
 //formik
 import { Field } from 'formik'
 //yup
@@ -17,7 +14,6 @@ import CustomInput from '../customInput'
 import LogoIcon from '../../Icons/LogoIcon'
 import FormWrapper from '../FormWrapper/FormWrapper'
 import { closeEditModal, setNewUserInfo } from '../../../redux/slices/userSlice'
-import { ProfileViewInfoProps } from '../../PageContent/ProfileView/ProfileViewInfo/ProfileViewInfo'
 
 const initialValues = {
 	//initial and only these values for true auth
@@ -56,18 +52,20 @@ const EditModalForm: React.FC = () => {
 	})
 	//router
 
-	const handleSubmit = (values: any) => {
+	const handleSubmit = (values: { fullName: string; username: string }) => {
 		// user update simulation
 		// console.log('EditModalForm submitted:', values)
-		const newUserInfoData = {
-			fullName: values.fullName ? values.fullName : userData?.fullName,
-			loginData: {
-				username: values.username ? values.username : userData?.username,
-			},
-		}
+		if (userData) {
+			const newUserInfoData = {
+				fullName: values.fullName ? values.fullName : userData.fullName,
+				loginData: {
+					username: values.username ? values.username : userData.username,
+				},
+			}
 
-		dispatch(setNewUserInfo(newUserInfoData))
-		dispatch(closeEditModal())
+			dispatch(setNewUserInfo(newUserInfoData))
+			dispatch(closeEditModal())
+		}
 	}
 
 	return (

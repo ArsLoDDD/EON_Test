@@ -3,9 +3,17 @@ import React, { useEffect, useRef, useState } from 'react'
 
 Chart.register(...registerables)
 
-const PieChart: React.FC<any> = ({ data }) => {
+interface ChartDataProps {
+	data: {
+		labels: string[]
+		values: number[]
+		colors: string[]
+	}
+}
+
+const PieChart: React.FC<ChartDataProps> = ({ data }) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null)
-	const [chartInstance, setChartInstance] = useState<any | null>(null)
+	const [chartInstance, setChartInstance] = useState<Chart<'pie'> | null>(null)
 
 	useEffect(() => {
 		if (chartRef.current) {
@@ -14,7 +22,7 @@ const PieChart: React.FC<any> = ({ data }) => {
 				chartInstance.destroy()
 			}
 			const ctx = chartRef.current.getContext('2d')
-			if (ctx) {
+			if (ctx && data) {
 				const newChart = new Chart(ctx, {
 					type: 'pie',
 					data: {

@@ -9,9 +9,9 @@ import { motion } from 'framer-motion'
 import LogoIcon from '../../Icons/LogoIcon'
 
 interface FormWrapperProps {
-	initialValues: any
+	initialValues: Record<string, string>
 	validationSchema: any
-	onSubmit: (values: any) => void
+	onSubmit: (an: any) => void
 	isLoading?: boolean
 	isBig?: boolean
 	linkArgs?: {

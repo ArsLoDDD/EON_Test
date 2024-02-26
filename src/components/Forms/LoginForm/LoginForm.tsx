@@ -53,9 +53,10 @@ const LoginForm: React.FC = () => {
 		}
 	}, [error])
 
-	const handleSubmit = (values: any) => {
+	const handleSubmit = (values: { username: string; password: string }) => {
 		// auth simulation
-		// console.log('LoginForm submitted:', values)
+		console.log('LoginForm submitted:', values)
+
 		dispatch(userAuth(values))
 		if (!isError) {
 			navigate('/')

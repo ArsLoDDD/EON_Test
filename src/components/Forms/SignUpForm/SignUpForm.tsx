@@ -61,14 +61,24 @@ const SignUpForm: React.FC<{
 	//redux
 	const dispatch: AppDispatch = useDispatch()
 	const isLoading = useSelector((state: RootState) => state.auth.loading)
-	const error = useSelector((state: RootState) => state.auth.error)
-	const errorMessage = useSelector(
-		(state: RootState) => state.auth.errorMessage
-	)
+
+	//on this time we don't need to use these
+	// const error = useSelector((state: RootState) => state.auth.error)
+	// const errorMessage = useSelector(
+	// 	(state: RootState) => state.auth.errorMessage
+	// )
+	
 	//router
 	const navigate = useNavigate()
 
-	const handleSubmit = (values: any) => {// reg simulation
+	const handleSubmit = (values: {
+		fullName: string
+		username: string
+		email: string
+		password: string
+		confirmPassword: string
+	}) => {
+		// reg simulation
 		console.log('RegisterForm submitted:', values)
 		// dispatch(userRegister(values))
 		if (!isError) {
