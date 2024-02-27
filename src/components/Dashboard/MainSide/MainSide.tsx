@@ -18,14 +18,12 @@ const MainSide: React.FC = () => {
 		<div className='w-full h-screen bg-slate-200 flex justify-center'>
 			<div className='flex flex-col justify-center  w-full md:w-11/12'>
 				{userInfo && path === ('/' || '/home') && (
-					<p className='font-poppins text-3xl font-semibold mt-4 mb-2 select-none self-end lg:self-start mr-5 md:mr-0'>
+					<p className='font-poppins h-9 text-3xl font-semibold mt-4 mb-2 select-none self-end lg:self-start mr-5 md:mr-0'>
 						Hello {typedUserInfo.fullName} 👋🏼,
 					</p>
 				)}
 				{!userInfo && path === ('/' || '/home') && (
-					<p className='font-poppins text-3xl font-semibold mt-4 mb-2 select-none self-end lg:self-start mr-5 md:mr-0 opacity-0'>
-						Hello 👋🏼,
-					</p>
+					<div className='mt-4 mb-2 h-9.55 w-2/12 rounded-3xl bg-gray-300 animate-pulse'></div>
 				)}
 
 				<div className=' bg-white md:rounded-3xl flex justify-center h-11/12'>
