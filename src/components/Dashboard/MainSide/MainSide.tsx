@@ -22,6 +22,12 @@ const MainSide: React.FC = () => {
 						Hello {typedUserInfo.fullName} 👋🏼,
 					</p>
 				)}
+				{!userInfo && path === ('/' || '/home') && (
+					<p className='font-poppins text-3xl font-semibold mt-4 mb-2 select-none self-end lg:self-start mr-5 md:mr-0 opacity-0'>
+						Hello 👋🏼,
+					</p>
+				)}
+
 				<div className=' bg-white md:rounded-3xl flex justify-center h-11/12'>
 					<AppRoutes />
 				</div>

@@ -1,5 +1,6 @@
 import { Chart, registerables } from 'chart.js'
 import React, { useEffect, useRef, useState } from 'react'
+import useScreenSize from '../../hooks/useScreenSize'
 
 Chart.register(...registerables)
 
@@ -14,6 +15,7 @@ interface ChartDataProps {
 const PieChart: React.FC<ChartDataProps> = ({ data }) => {
 	const chartRef = useRef<HTMLCanvasElement | null>(null)
 	const [chartInstance, setChartInstance] = useState<Chart<'pie'> | null>(null)
+	const screenSize = useScreenSize()
 
 	useEffect(() => {
 		if (chartRef.current) {
@@ -36,6 +38,7 @@ const PieChart: React.FC<ChartDataProps> = ({ data }) => {
 					},
 					options: {
 						responsive: true,
+
 						plugins: {
 							legend: undefined,
 							tooltip: undefined,
@@ -48,7 +51,7 @@ const PieChart: React.FC<ChartDataProps> = ({ data }) => {
 				setChartInstance(newChart)
 			}
 		}
-	}, [data])
+	}, [data, screenSize])
 
 	return <canvas ref={chartRef} />
 }

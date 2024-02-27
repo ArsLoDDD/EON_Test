@@ -11,6 +11,7 @@ interface LineChartData {
 	}[]
 	xAxisLabel: string
 	yAxisLabel: string
+	aspectRatio?: number
 }
 
 const LineChart: React.FC<LineChartData> = ({
@@ -43,6 +44,7 @@ const LineChart: React.FC<LineChartData> = ({
 					},
 					options: {
 						responsive: true,
+						maintainAspectRatio: false,
 						plugins: {
 							legend: {
 								display: false,
@@ -72,7 +74,7 @@ const LineChart: React.FC<LineChartData> = ({
 				}
 			}
 		}
-	}, [labels, datasets, xAxisLabel, yAxisLabel])
+	}, [labels])
 
 	return <canvas ref={chartRef} />
 }

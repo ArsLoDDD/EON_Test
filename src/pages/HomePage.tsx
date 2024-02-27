@@ -13,6 +13,8 @@ import { fetchKeywords } from '../api/fetchKeywords'
 import randomColor from 'randomcolor'
 //components
 import LineChart from '../components/Diagram/LineChart'
+import Skeleton from 'react-loading-skeleton'
+import SkeletonHomePage from '../components/Skeletons/SkeletonHomePage'
 
 const border = 'border-4 border-white'
 export interface ChartData {
@@ -87,70 +89,77 @@ const HomePage: React.FC = () => {
 		}
 	}, [userKeywordsCount])
 
-	if (!userSources) return <div>loading...</div>
+	if (!userSources) return <SkeletonHomePage />
 	return (
 		<div className='w-full h-full py-3 relative flex flex-col justify-center items-center bg-slate-200'>
 			<div
-				className={`w-full h-2/12 ${border} flex justify-center items-center `}
+				className={`w-full h-1/12 ${border} flex justify-center items-center `}
 			>
 				<p className=' text-slate-500 font-poppins font-bold text-3xl'>
 					Many updates later
 				</p>
 			</div>
-			<div className={`w-full h-5/12 flex ${border}`}>
+			<div className={`w-full h-5/12 flex flex-col md:flex-row ${border}`}>
 				<div
-					className={`w-1/2 ${border} flex flex-col justify-center items-center py-4`}
+					className={`w-full md:w-1/2 h-3/6 md:h-full ${border} flex flex-col justify-center items-center py-4`}
 				>
 					<p className=' text-xs font-bold'>Your Accounts follower Stats</p>
-					{connectedSourcesChart.colors.length && (
-						<PieChart data={connectedSourcesChart} />
-					)}
+					<div className='h-full'>
+						{connectedSourcesChart.colors.length && (
+							<PieChart data={connectedSourcesChart} />
+						)}
+					</div>
 				</div>
 				<div
-					className={`w-1/2 ${border} flex flex-col justify-center items-center py-4 `}
+					className={`w-full md:w-1/2  h-3/6 md:h-full ${border} flex flex-col justify-center items-center py-4 `}
 				>
 					<p className=' text-xs font-bold'>Yours and Servise Keywords</p>
-					{userKeywordsCountChart.colors.length && (
-						<PieChart data={userKeywordsCountChart} />
-					)}
+					<div className='h-full'>
+						{userKeywordsCountChart.colors.length && (
+							<PieChart data={userKeywordsCountChart} />
+						)}
+					</div>
 				</div>
 			</div>
 			<div
-				className={`w-full h-5/12 ${border} flex flex-col justify-center items-center py-2`}
+				className={`w-full h-6/12 ${border} flex flex-col justify-center items-center`}
 			>
 				<p className=' text-xs font-bold pt-2 whitespace-nowrap'>
 					Chart of growth of number of followers of likes and comments
 				</p>
-				<LineChart
-					labels={[
-						'January',
-						'February',
-						'March',
-						'April',
-						'May',
-						'June',
-						'July',
-					]}
-					datasets={[
-						{
-							label: 'Followers',
-							data: [41245, 34581, 83762, 13058, 87122, 45616, 23451],
-							color: 'rgb(255, 215, 0)',
-						},
-						{
-							label: 'Likes',
-							data: [98799, 12312, 42341, 12354, 43562, 32452, 52344],
-							color: 'rgb(255, 0, 255)',
-						},
-						{
-							label: 'Comments',
-							data: [41231, 41245, 23411, 12341, 51321, 63131, 12367],
-							color: 'rgb(0, 255, 0)',
-						},
-					]}
-					xAxisLabel='Month'
-					yAxisLabel='Percentage'
-				/>
+
+				<div className='w-full h-full'>
+					<LineChart
+						labels={[
+							'January',
+							'February',
+							'March',
+							'April',
+							'May',
+							'June',
+							'July',
+						]}
+						datasets={[
+							{
+								label: 'Followers',
+								data: [41245, 34581, 83762, 13058, 87122, 45616, 23451],
+								color: 'rgb(255, 215, 0)',
+							},
+							{
+								label: 'Likes',
+								data: [98799, 12312, 42341, 12354, 43562, 32452, 52344],
+								color: 'rgb(255, 0, 255)',
+							},
+							{
+								label: 'Comments',
+								data: [41231, 41245, 23411, 12341, 51321, 63131, 12367],
+								color: 'rgb(0, 255, 0)',
+							},
+						]}
+						xAxisLabel='Month'
+						yAxisLabel='Percentage'
+					/>
+				</div>
 			</div>
 		</div>
 	)
