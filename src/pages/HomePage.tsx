@@ -89,7 +89,7 @@ const HomePage: React.FC = () => {
 		}
 	}, [userKeywordsCount])
 
-	if (true) return <SkeletonHomePage />
+	if (!userSources) return <SkeletonHomePage />
 	return (
 		<div className='w-full h-full py-3 relative flex flex-col justify-center items-center bg-slate-200'>
 			<div
