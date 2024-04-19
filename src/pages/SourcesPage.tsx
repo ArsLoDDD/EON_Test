@@ -18,7 +18,7 @@ const SourcesPage: React.FC = () => {
 
 	if (!userSources) return <h1>Loading</h1>
 	return (
-		<div className='w-full flex justify-center pt-5'>
+		<div className='w-full flex justify-center pt-5 '>
 			<SourcesItems sources={userSources} />
 		</div>
 	)
